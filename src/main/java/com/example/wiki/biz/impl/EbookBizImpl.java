@@ -1,6 +1,6 @@
 package com.example.wiki.biz.impl;
 
-import com.example.wiki.biz.EBookBiz;
+import com.example.wiki.biz.EbookBiz;
 import com.example.wiki.entity.Ebook;
 import com.example.wiki.entity.EbookExample;
 import com.example.wiki.mapper.EbookMapper;
@@ -18,14 +18,14 @@ import java.util.List;
  * @date : 2021-07-05
  **/
 @Service
-public class EBookBizImpl implements EBookBiz {
+public class EbookBizImpl implements EbookBiz {
 
     @Autowired
-    private EbookMapper eBookMapper;
+    private EbookMapper ebookMapper;
 
     @Override
     public List<Ebook> selectAll() {
-        return eBookMapper.selectByExample(null);
+        return ebookMapper.selectByExample(null);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class EBookBizImpl implements EBookBiz {
         EbookExample ebookExample = new EbookExample();
         EbookExample.Criteria criteria = ebookExample.createCriteria();
         criteria.andNameLike("%" + request.getName() + "%");
-        List<Ebook> ebookList = eBookMapper.selectByExample(ebookExample);
+        List<Ebook> ebookList = ebookMapper.selectByExample(ebookExample);
 
         ArrayList<EbookResponse> eBookResponseList = new ArrayList<>();
         for (Ebook ebook : ebookList) {

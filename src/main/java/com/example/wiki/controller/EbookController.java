@@ -1,6 +1,6 @@
 package com.example.wiki.controller;
 
-import com.example.wiki.biz.EBookBiz;
+import com.example.wiki.biz.EbookBiz;
 import com.example.wiki.request.EbookRequest;
 import com.example.wiki.response.CommonResponse;
 import com.example.wiki.response.EbookResponse;
@@ -20,12 +20,12 @@ import java.util.List;
 public class EbookController {
 
     @Autowired
-    private EBookBiz eBookBiz;
+    private EbookBiz ebookBiz;
 
     @GetMapping(value = "/list")
     public CommonResponse<List<EbookResponse>> getList(EbookRequest request) {
         CommonResponse<List<EbookResponse>> response = new CommonResponse<>();
-        response.setContent(eBookBiz.selectAll(request));
+        response.setContent(ebookBiz.selectAll(request));
         return response;
     }
 }

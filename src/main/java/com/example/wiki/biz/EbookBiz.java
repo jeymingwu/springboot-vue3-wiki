@@ -6,7 +6,7 @@ import com.example.wiki.response.EbookResponse;
 
 import java.util.List;
 
-public interface EBookBiz {
+public interface EbookBiz {
 
     List<Ebook> selectAll();
 
