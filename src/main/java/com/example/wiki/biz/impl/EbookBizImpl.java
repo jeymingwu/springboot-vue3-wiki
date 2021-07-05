@@ -6,6 +6,7 @@ import com.example.wiki.entity.EbookExample;
 import com.example.wiki.mapper.EbookMapper;
 import com.example.wiki.request.EbookRequest;
 import com.example.wiki.response.EbookResponse;
+import com.example.wiki.util.CopyUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,13 +36,13 @@ public class EbookBizImpl implements EbookBiz {
         criteria.andNameLike("%" + request.getName() + "%");
         List<Ebook> ebookList = ebookMapper.selectByExample(ebookExample);
 
-        ArrayList<EbookResponse> eBookResponseList = new ArrayList<>();
-        for (Ebook ebook : ebookList) {
-            EbookResponse ebookResponse = new EbookResponse();
-            BeanUtils.copyProperties(ebook, ebookResponse);
-            eBookResponseList.add(ebookResponse);
-        }
+//        ArrayList<EbookResponse> eBookResponseList = new ArrayList<>();
+//        for (Ebook ebook : ebookList) {
+//            EbookResponse ebookResponse = new EbookResponse();
+//            BeanUtils.copyProperties(ebook, ebookResponse);
+//            eBookResponseList.add(ebookResponse);
+//        }
 
-        return eBookResponseList;
+        return CopyUtil.copyList(ebookList, EbookResponse.class);
     }
 }
