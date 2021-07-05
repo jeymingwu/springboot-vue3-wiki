@@ -7,8 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.ConfigurableEnvironment;
 
-@SpringBootApplication
 @MapperScan("com.example.wiki.mapper")
+@SpringBootApplication
 public class SpringbootVue3WikiApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(SpringbootVue3WikiApplication.class);
